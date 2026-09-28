@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320">
+  <defs>
+    <!-- Limita os painéis ao interior da janela em arco. -->
+    <clipPath id="janela">
+      <path d="M26 294 V116 Q26 67 120 22 Q214 67 214 116 V294 Z" />
+    </clipPath>
+
+    <!-- Variação de luz sobre todos os vidros. -->
+    <linearGradient id="luz" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".32" />
+      <stop offset=".48" stop-color="#ffffff" stop-opacity=".02" />
+      <stop offset="1" stop-color="#090713" stop-opacity=".42" />
+    </linearGradient>
+  </defs>
+
+  <!-- Sombra e estrutura externa. -->
+  <path
+    d="M16 304 V113 Q16 57 120 10 Q224 57 224 113 V304 Z"
+    fill="#120e18"
+    stroke="#826b60"
+    stroke-width="4"
+  />
+
+  <g clip-path="url(#janela)">
+    <!-- Cada forma é um painel de vidro. -->
+    <path d="M26 22 H120 V112 H26 Z" fill="#69344d" />
+    <path d="M120 22 H214 V112 H120 Z" fill="#355568" />
+
+    <path d="M26 112 H120 V202 H26 Z" fill="#984852" />
+    <path d="M120 112 H214 V202 H120 Z" fill="#436270" />
+
+    <path d="M26 202 H120 V294 H26 Z" fill="#493653" />
+    <path d="M120 202 H214 V294 H120 Z" fill="#805544" />
+
+    <!-- Facetas criam diferenças de cor dentro dos painéis. -->
+    <path d="M26 112 L120 112 L26 202 Z" fill="#b76864" opacity=".65" />
+    <path d="M120 22 L214 112 L120 112 Z" fill="#67848a" opacity=".55" />
+    <path d="M120 202 L214 202 L214 294 Z" fill="#bb7654" opacity=".5" />
+    <path d="M26 202 L120 294 L26 294 Z" fill="#735073" opacity=".6" />
+
+    <!-- Reflexo suave, por cima dos painéis. -->
+    <path d="M26 22 H214 V294 H26 Z" fill="url(#luz)" />
+
+    <!-- Divisórias de chumbo. -->
+    <g fill="none" stroke="#18151c" stroke-width="7" stroke-linejoin="round">
+      <path d="M120 22 V294" />
+      <path d="M26 112 H214 M26 202 H214" />
+    </g>
+
+    <!-- Fios de luz nas divisórias. -->
+    <g fill="none" stroke="#aa8a70" stroke-width="1.2" opacity=".75">
+      <path d="M120 22 V294" />
+      <path d="M26 112 H214 M26 202 H214" />
+    </g>
+  </g>
+
+  <!-- Moldura interna visível sobre as bordas dos vidros. -->
+  <path
+    d="M26 294 V116 Q26 67 120 22 Q214 67 214 116 V294 Z"
+    fill="none"
+    stroke="#c3a079"
+    stroke-width="5"
+  />
+</svg>

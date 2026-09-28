@@ -1,13 +1,16 @@
 :root {
    color-scheme: dark; 
    
- --background: #0b1423;
-  --surface: #122238;
-  --surface-raised: #192d47;
-  --text: #f2f7fc;
-  --muted: #b4c5d8;
-  --accent: #65dded;
-  --border: #304660;
+    --background: #100e14;
+    --background-deep: #0b0a0f;
+    --surface: #1b1720;
+    --surface-raised: #28202a;
+    --text: #f1e9e0;
+    --muted: #c4b7b4;
+    --accent: #d6b47c;
+    --accent-light: #f0d5a7;
+    --wine: #713348;
+    --border: #51404b;
 }
 
 * {
@@ -20,54 +23,68 @@ html {
 
 body {
     margin: 0;
-    background: var(--background);
+    background:
+        radial-gradient(
+            circle at 75% 8%,
+            rgba(113, 51, 72, 0.26),
+            transparent 32rem
+        ),
+        linear-gradient(
+            180deg,
+            var(--background) 0%,
+            var(--background-deep) 100%
+        );
     color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
+    font-family: Arual, Arial, Helvetica, sans-serif;
+    line-height: 1.65;
 }
 
 a {
-    color: var(--accent);
+    color: var(--accent-light);
     text-underline-offset: 4px;
 }
 
 a:hover {
-    color: var(--text);
+    color: #ffffff;
 }
 
 a:focus-visible {
-    outline: 3px solid var(--accent);
+    outline: 2px solid var(--accent-light);
     outline-offset: 4px;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 header {
-    background: var(--surface);
+    background: rgba(16,14,20,0.96);
     border-bottom: 1px solid var(--border);
 }
 
 nav,
 main,
 footer {
-    width: min(100% - 2rem, 960px);
-    margin-inline: auto
+    width: min(100% - 2rem, 1000px);
+    margin-inline: auto;
 }
 
 nav {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem 1.5rem;
-    padding-block: 1rem;
+    padding-block: 1.2rem;
 }
 
 nav a {
     color: var(--muted);
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-decoration: none;
+    text-transform: uppercase;
+    transition: color 300ms ease;
 }
 
 nav a:hover {
-    color: var(--accent);
+    color: var(--accent-light);
 }
 
 main {
@@ -75,54 +92,127 @@ main {
 }
 
 section {
-    margin-bottom: 2.75rem;
+    margin-bottom: 3.5rem;
     scroll-margin-top: 1rem;
-}
-
-#inicio {
-    padding: 2rem;
-    background: linear-gradient(135deg, var(--surface-raised), var(--surface));
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--accent);
-    border-radius: 14px; 
-}
-
-#inicio p:last-child {
-    margin-bottom: 0;
 }
 
 h1,
 h2,
 h3 {
+    font-family: Georgia, "Times New Roman", serif;
     line-height: 1.2;
 }
 
 h1 {
-    margin: 0 0 1rem;
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    margin: 0 0 1.25rem;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
 }
 
 h2 {
-    margin:0 0 1rem;
-    font-size: clamp(1.5rem, 5vw, 2.25rem);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin:0 0 1.5rem;
+    color: var(--accent-light);
+    font-size: clamp(1.8rem, 5vw, 2.25rem);
+    font-weight: 400;
+}
+
+h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
 }
 
 h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 400;
 }
 
 p {
     max-width: 70ch;
 }
 
+#inicio {
+    position:relative;
+    overflow: hidden; 
+    padding: clamp(2rem, 6vw, 4rem);
+    background:
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(113,51,72,0.45),
+            transparent 20rem
+        ),
+        linear-gradient(
+            135deg,
+            var(--surface-raised),
+            var(--surface) 70%
+        );
+    border: 1px solid var(--border);
+}
+
+#inicio::before{
+    content: "";
+    position: absolute;
+    inset: 0.65rem;
+    border: 1px solid rgba(214, 180, 124, 0.35);
+    pointer-events: none;
+}
+
+#inicio h1 {
+    position: relative;
+    max-width: 12ch;
+    color: var(--accent-light);
+}
+
 #inicio p {
-    color: var(--muted);
-    font-size: 1.1rem;
+    position: relative;
+    max-width: 58ch;
+    color: var(--text);
+    font-size: clamp(1rem, 2vw, 1.2rem)
+}
+
+#inicio p:last-child {
+    margin-bottom: 0;
+}
+
+.inicio-conteudo {
+    position: relative;
+    z-index: 1;
+}
+
+.inicio-sobretitulo {
+    margin: 0 0 1rem;
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16rem;
+    text-transform: uppercase;
+}
+
+#inicio .inicio-sobretitulo{
+    color:var(--accent);
+    font-size: 0.8rem;
+}
+
+.vitral {
+    display: block;
+    width: min(65%, 220px);
+    height: auto;
+    margin: 2rem auto 0;
+    filter: drop-shadow(0 0 22px rgba(113, 51, 72, 0.45));
+}
+
+#sobre p {
+    color: var(--muted)
 }
 
 #tecnologias h3 {
-    margin-top: 1.75rem;
-    color: var(--muted)
+    margin-top: 1.75rem 0 1rem;
+    color: var(--text)
 }
 
 #tecnologias ul {
@@ -138,11 +228,19 @@ p {
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
-    padding: 0.65rem 0.9rem;
+    padding: 0.7rem 0.9rem;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 999px;
+    color: var(--text);
     font-weight: 600;
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease
+}
+
+#tecnologias li:hover {
+    background: var(--surface-raised);
+    border-color: var(--accent);
 }
 
 #tecnologias img {
@@ -158,16 +256,33 @@ p {
 }
 
 #projetos article {
-    padding: 1.5rem;
+    position: relative;
+    padding: 1.75rem;
     margin-bottom: 1rem;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-top: 3px solid var(--wine);
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease;
+}
+
+#projetos article:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent)
 }
 
 #projetos article h3 {
     margin-top: 0;
-    color: var(--accent);
+    color: var(--accent-light);
+}
+
+#projetos article p {
+    color: var(--muted);
+}
+
+#contato p {
+    color: var(--muted);
 }
 
 footer {
@@ -183,7 +298,15 @@ footer {
     }
 
     #inicio {
-        padding: 3rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 220px;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .vitral {
+        width: 220px;
+        margin: 0;
     }
 
     #projetos {
@@ -203,6 +326,16 @@ footer {
     @media (prefers-reduced-motion:reduce) {
         html {
             scroll-behavior: auto;
+        }
+
+        nav a,
+        #tecnologias li,
+        #projetos article {
+            transition: none;
+        }
+
+        #projetos article:hover {
+            transform: none;
         }
     }
 }
