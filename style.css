@@ -302,15 +302,41 @@ p {
     position: relative;
     padding: 1.75rem;
     margin-bottom: 1rem;
-    background: var(--surface);
+    background: linear-gradient(145deg, rgba(113, 51, 72, 0.14), transparent 60%), var(--surface);
     border: 1px solid var(--border);
     border-top: 3px solid var(--wine);
     transition:
         transform 180ms ease,
-        border-color 180ms ease;
+        border-color 180ms ease,
+        background-color 180ms ease;
 }
 
-#projetos article:hover {
+#projetos article::before,
+#projetos article::after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    transition: border-color 180ms;
+}
+
+#projetos article::before {
+    top: 0.55rem;
+    left: 0.55rem;
+    border-top: 1px solid var(--accent);
+    border-left: 1px solid var(--accent);
+}
+
+#projetos article::after {
+    right: 0.55rem;
+    bottom: 0.55rem;
+    border-right: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+}
+
+#projetos article:hover,
+#projetos article:focus-within {
     transform: translateY(-4px);
     border-color: var(--accent)
 }
@@ -322,6 +348,19 @@ p {
 
 #projetos article p {
     color: var(--muted);
+}
+
+#projetos article > a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 700;
+    text-decoration-color: var(--wine);
+    transition: text-decoration-color 180ms ease;
+}
+
+#projetos article > a:hover,
+#projetos article > a:focus-visible {
+    text-decoration-color: var(--accent-light);
 }
 
 #contato p {
@@ -374,11 +413,15 @@ footer {
         nav a,
         nav a::after,
         #tecnologias li,
-        #projetos article {
+        #projetos article,
+        #projetos article::before, 
+        #projetos article::after,
+        #projetos article > a { 
             transition: none;
         }
 
-        #projetos article:hover {
+        #projetos article:hover,
+        #projetos article:focus-within {
             transform: none;
         }
     }
