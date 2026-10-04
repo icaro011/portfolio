@@ -363,8 +363,63 @@ p {
     text-decoration-color: var(--accent-light);
 }
 
-#contato p {
+.contato-painel {
+    position: relative;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    background: linear-gradient(135deg, rgba(113, 51, 72, 0.3), transparent 65%), var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--wine);
+}
+
+.contato-painel::after {
+    content: "";
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-right: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+    pointer-events: none;
+}
+
+.contato-painel p {
+    margin-top: 0;
     color: var(--muted);
+}
+
+.contato-painel .contato-destaque {
+    margin-bottom: 0.75rem;
+    color: var(--accent-light);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    line-height: 1.25;
+}
+
+.contato-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.contato-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--accent);
+    color: var(--accent-light);
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        background-color 180ms ease
+        color 180ms ease;
+}
+
+.contato-link:hover {
+    background: var(--accent);
+    color: var(--background-deep);
 }
 
 footer {
@@ -423,6 +478,10 @@ footer {
         #projetos article:hover,
         #projetos article:focus-within {
             transform: none;
+        }
+
+        .contato-link {
+            transition: none;
         }
     }
 }
