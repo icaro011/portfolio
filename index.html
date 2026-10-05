@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Icaro Oliveira</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <a class="pular-conteudo" href="#conteudo">
+        Pular para o conteúdo
+    </a>
     <header>
-        <nav aria-label="Navegação principal">
+        <button class="menu-toggle" type="button" aria-controls="menu-principal" aria-expanded="false" hidden>
+            <span aria-hidden="true">☰</span>
+            <span>Menu</span>
+        </button>
+
+        <nav id="menu-principal" aria-label="Navegação principal">
             <a href="#inicio">Início</a>
             <a href="#sobre">Sobre</a>
             <a href="#tecnologias">Tecnologias</a>
@@ -17,7 +26,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="conteudo" tabindex="-1">
         <section id="inicio">
             <div class="inicio-conteudo">
                 <p class="inicio-sobretitulo">
@@ -109,7 +118,7 @@
                     Meu primeiro projeto pessoal: uma página criada com HTML e CSS para apresentar minha trajetória, meus estudos e meus projetos.
                 </p>
                 <a href="https://github.com/icaro011/portfolio">
-                    Ver repositório do portifólio
+                    Ver repositório do portfólio
                 </a>
             </article>
         </section>
@@ -120,11 +129,11 @@
             <div class="contato-painel">
                 <p class="contato-destaque">Conecte-se comigo!</p>
                 <p>
-                    Estou construindo minha trajetório profissional em desenvolvimento de software, trazendo minha experiência em engenharia, redes e serviços de tecnologia.
+                    Estou construindo minha trajetória profissional em desenvolvimento de software, trazendo minha experiência em engenharia, redes e serviços de tecnologia.
                 </p>
 
                 <p>
-                    Acompanhe meus projetos no Github e minha trajetória profissional no linkedin.
+                    Acompanhe meus projetos no GitHub e minha trajetória profissional no linkedIn.
                 </p>
 
                 <div class="contato-acoes">
