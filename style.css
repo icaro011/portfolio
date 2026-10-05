@@ -422,6 +422,11 @@ p {
     color: var(--background-deep);
 }
 
+#contato {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
 footer {
     padding-block: 1.5rem;
     border-top: 1px solid var(--border);
